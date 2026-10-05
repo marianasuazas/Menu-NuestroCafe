@@ -5,13 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>NUESTRO · Café de Santa Bárbara</title>
 <meta name="description" content="Carta de NUESTRO, Café de Santa Bárbara.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>">
+<link rel="icon" type="image/png" href="img/icono.png">
+<link rel="apple-touch-icon" href="img/icono-apple.png">
+<meta name="theme-color" content="#F4ECE1">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://marianasuazas.github.io/Menu-NuestroCafe/">
+<meta property="og:title" content="NUESTRO · Café de Santa Bárbara">
+<meta property="og:description" content="Conoce nuestra carta: café de origen, bebidas, postres y productos de la región.">
+<meta property="og:image" content="https://marianasuazas.github.io/Menu-NuestroCafe/img/compartir.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:wght@500;600;700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --crema:#F4ECE1; --papel:#FBF6EF; --vino:#7B1E22; --vino-oscuro:#5E1519;
+  --crema:#F4ECE1; --papel:#FBF6EF; --rojo:#C31622; --vino:#A8141D; --vino-oscuro:#85101A;
   --cafe:#2E1D14; --grano:#6B4A35; --linea:#E3D6C6;
   --serif:"Cormorant Garamond", Georgia, "Times New Roman", serif;
   --sans:"Nunito Sans", "Segoe UI", Roboto, Arial, sans-serif;
@@ -43,15 +52,15 @@ a{color:inherit}
 .hero > *{position:relative}
 .hero .montes{position:absolute;left:0;right:0;bottom:0;width:100%;height:auto;color:var(--grano);opacity:.35}
 .hero.con-foto .montes{display:none}
-.grano-icono{width:44px;height:44px;margin:0 auto 10px;color:var(--vino)}
-.hero.con-foto .grano-icono{color:#fff}
+.hero .logo{width:min(520px,88%);height:auto;margin:0 auto}
+.contacto .logo{width:min(260px,70%);height:auto;margin:0 auto}
 .hero h1{font-family:var(--serif);font-weight:700;color:var(--vino);font-size:clamp(3.2rem,12vw,6rem);line-height:.95;letter-spacing:.03em}
 .hero.con-foto h1{color:#fff}
 .hero .sub{font-family:var(--serif);font-weight:600;letter-spacing:.32em;font-size:clamp(.8rem,2.6vw,1rem);margin-top:8px;color:var(--cafe)}
 .hero.con-foto .sub{color:#F4ECE1}
 .hero .eslogan{font-family:var(--script);font-size:clamp(1.8rem,6vw,2.5rem);color:var(--grano);margin-top:14px}
 .hero.con-foto .eslogan{color:#F4ECE1}
-.btn{display:inline-flex;align-items:center;gap:8px;background:var(--vino);color:#fff;text-decoration:none;
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--rojo);color:#fff;text-decoration:none;
   font-weight:700;font-size:.95rem;padding:13px 26px;border-radius:999px;margin-top:28px;border:0;cursor:pointer}
 .btn:hover{background:var(--vino-oscuro)}
 
@@ -80,6 +89,8 @@ a{color:inherit}
 .lista{list-style:none;background:var(--papel);border:1px solid var(--linea);border-radius:16px;padding:6px 18px}
 .item{display:grid;grid-template-columns:64px 1fr auto;gap:14px;align-items:center;padding:16px 0;border-bottom:1px solid var(--linea)}
 .item:last-child{border-bottom:0}
+.subcat{list-style:none;font-family:var(--serif);font-weight:600;font-size:1.45rem;color:var(--vino);padding:22px 0 8px;border-bottom:1px solid var(--linea)}
+.subcat:first-child{padding-top:12px}
 .item .mini{width:64px;height:64px;border-radius:12px;object-fit:cover;background:var(--crema)}
 .item .letra{width:64px;height:64px;border-radius:12px;display:grid;place-items:center;
   background:var(--crema);color:var(--vino);font:700 1.6rem var(--serif)}
@@ -92,8 +103,9 @@ a{color:inherit}
 .historia .titulo{color:#fff}
 .historia p{max-width:58ch;margin:18px auto 0;font-family:var(--serif);font-size:1.25rem;line-height:1.6}
 .contacto{text-align:center}
-.contacto .eslogan{font-family:var(--script);font-size:2rem;color:var(--grano);margin-top:6px}
-.redes{display:flex;justify-content:center;gap:clamp(24px,8vw,64px);margin-top:28px}
+.contacto .eslogan{font-family:var(--script);font-size:2rem;line-height:1.2;color:var(--grano);margin-top:6px}
+.redes{display:flex;flex-wrap:wrap;justify-content:center;gap:20px clamp(14px,5vw,56px);margin-top:28px}
+.redes a{width:72px;text-align:center;line-height:1.25}
 .redes a{display:flex;flex-direction:column;align-items:center;gap:8px;text-decoration:none;font-size:.9rem;font-weight:600;color:var(--cafe)}
 .redes .circulo{width:58px;height:58px;border-radius:50%;border:1.5px solid var(--vino);display:grid;place-items:center;color:var(--vino)}
 .redes a:hover .circulo{background:var(--vino);color:#fff}
@@ -122,13 +134,7 @@ footer{text-align:center;font-size:.8rem;color:var(--grano);padding:24px 20px 32
 
 <main id="inicio" class="oculto">
   <section class="hero" id="hero">
-    <svg class="grano-icono" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
-      <ellipse cx="17" cy="26" rx="9" ry="13" transform="rotate(-25 17 26)"/>
-      <ellipse cx="31" cy="22" rx="9" ry="13" transform="rotate(25 31 22)"/>
-      <path d="M13 17c6 4 6 14 0 19M35 13c-6 4-6 14 0 19" stroke="#FBF6EF" stroke-width="2" fill="none"/>
-    </svg>
-    <h1 data-info="nombre"></h1>
-    <p class="sub" data-info="subtitulo"></p>
+    <h1><img class="logo" src="img/logo.png" alt="NUESTRO, Café de Santa Bárbara" width="640" height="330"></h1>
     <p class="eslogan" data-info="eslogan"></p>
     <a class="btn" href="#carta">Ver nuestra carta</a>
     <svg class="montes" viewBox="0 0 1200 160" preserveAspectRatio="none" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -154,7 +160,7 @@ footer{text-align:center;font-size:.8rem;color:var(--grano);padding:24px 20px 32
 
   <section class="seccion contacto" id="contacto">
     <div class="wrap">
-      <h2 class="titulo" data-info="nombre"></h2>
+      <h2><img class="logo" src="img/logo.png" alt="NUESTRO, Café de Santa Bárbara" loading="lazy" width="640" height="330"></h2>
       <p class="eslogan" data-info="eslogan"></p>
       <div class="redes">
         <a id="lnkMapa" target="_blank" rel="noopener">
@@ -257,7 +263,7 @@ function pintarCategoria(id){
   foto.src = c.imagen || "";
   const items = PLATOS.filter(p => p.categoria === id && (p.disponible || "SI").toUpperCase() !== "NO")
                       .sort((a, b) => Number(a.orden) - Number(b.orden));
-  document.getElementById("lista").innerHTML = items.map(p => {
+  const fila = p => {
     const letra = esc(p.nombre.charAt(0));
     const img = p.imagen
       ? `<img class="mini" src="${esc(p.imagen)}" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;letra&quot;>${letra}</div>'">`
@@ -265,7 +271,18 @@ function pintarCategoria(id){
     return `<li class="item">${img}
       <div><h3>${esc(p.nombre)}</h3>${p.descripcion ? `<p>${esc(p.descripcion)}</p>` : ""}</div>
       <span class="precio">${precio(p.precio)}</span></li>`;
-  }).join("") || `<li class="item" style="grid-template-columns:1fr">No hay productos disponibles en esta sección por ahora.</li>`;
+  };
+  // Agrupa por subcategoría en el orden en que aparecen
+  const grupos = [];
+  items.forEach(p => {
+    const s = (p.subcategoria || "").trim();
+    let g = grupos.find(x => x.s === s);
+    if (!g){ g = { s, items: [] }; grupos.push(g); }
+    g.items.push(p);
+  });
+  document.getElementById("lista").innerHTML = grupos.map(g =>
+    (g.s ? `<li class="subcat">${esc(g.s)}</li>` : "") + g.items.map(fila).join("")
+  ).join("") || `<li class="item" style="grid-template-columns:1fr">No hay productos disponibles en esta sección por ahora.</li>`;
 }
 
 function ruta(){
