@@ -169,6 +169,10 @@ footer{text-align:center;font-size:.8rem;color:var(--grano);padding:24px 20px 32
           <span class="circulo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="4.5"/><circle cx="12" cy="12" r="3.6"/><circle cx="16.9" cy="7.1" r=".9" fill="currentColor"/></svg></span>
           Instagram
         </a>
+        <a id="lnkFb" target="_blank" rel="noopener">
+  <span class="circulo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 8h2.5V4.5H14A3.5 3.5 0 0 0 10.5 8v2.5H8V14h2.5v6H14v-6h2.5l.5-3.5h-3V8.5a.5.5 0 0 1 .5-.5z"/></svg></span>
+  Facebook
+</a>
       </div>
     </div>
   </section>
@@ -228,6 +232,7 @@ function pintarInicio(){
   document.getElementById("lnkMapa").href = INFO.como_llegar || "#";
   document.getElementById("lnkWpp").href = INFO.whatsapp ? `https://wa.me/${INFO.whatsapp.replace(/\D/g,"")}` : "#";
   document.getElementById("lnkIg").href = INFO.instagram || "#";
+  document.getElementById("lnkFb").href = INFO.facebook || "#";
 
   // Si existe img/hero.jpg se usa como fondo de la portada
   const foto = new Image();
