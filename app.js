@@ -27,6 +27,16 @@ function parseCSV(texto){
 
 const leer = g => fetch(urlHoja(g)).then(r => { if (!r.ok) throw new Error(r.status); return r.text(); }).then(parseCSV);
 const precio = v => "$" + Number(v || 0).toLocaleString("es-CO");
+const numero = v => Number(String(v || "").replace(/[^\d]/g, ""));
+
+// Precio simple ("45000") u opciones ("2 personas: 45000; 4 personas: 80000")
+function leerPrecio(texto){
+  const t = String(texto || "").trim();
+  if (!t.includes(":")) return { unico: numero(t), opciones: [] };
+  const opciones = t.split(";").map(o => o.split(":")).filter(o => o.length === 2 && o[0].trim())
+                    .map(([etiqueta, valor]) => ({ etiqueta: etiqueta.trim(), valor: numero(valor) }));
+  return { unico: 0, opciones };
+}
 const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 
 function pintarInicio(){
@@ -61,9 +71,13 @@ function pintarCategoria(id){
     const img = p.imagen
       ? `<img class="mini" src="${esc(p.imagen)}" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;letra&quot;>${letra}</div>'">`
       : `<div class="letra">${letra}</div>`;
+    const pr = leerPrecio(p.precio);
+    const opciones = pr.opciones.length
+      ? `<ul class="opciones">${pr.opciones.map(o => `<li><span>${esc(o.etiqueta)}</span><span class="precio">${o.valor ? precio(o.valor) : ""}</span></li>`).join("")}</ul>`
+      : "";
     return `<li class="item">${img}
-      <div><h3>${esc(p.nombre)}</h3>${p.descripcion ? `<p>${esc(p.descripcion)}</p>` : ""}</div>
-      <span class="precio">${precio(p.precio)}</span></li>`;
+      <div><h3>${esc(p.nombre)}</h3>${p.descripcion ? `<p>${esc(p.descripcion)}</p>` : ""}${opciones}</div>
+      <span class="precio">${pr.unico ? precio(pr.unico) : ""}</span></li>`;
   };
   // Agrupa por subcategoría en el orden en que aparecen
   const grupos = [];
